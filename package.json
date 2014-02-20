@@ -1,0 +1,23 @@
+{
+  "name": "grunt-p4",
+  "description": "Perforce commands for Grunt",
+  "version": "0.1.0",
+  "private": true,
+  "main": "target/grunt-p4.js",
+  "repository": {
+    "type" : "git",
+    "url" : "http://github.com/sflyphotobooks/grunt-p4.git"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.1.x"
+  },
+  "devDependencies": {
+    "grunt": "0.4.1",
+    "grunt-contrib-coffee": "0.6.4",
+    "grunt-contrib-clean": "0.4.0",
+    "grunt-contrib-watch": "0.2.0a",
+    "grunt-jasmine-node": "0.1.0",
+    "jasmine-node": "1.6.0"
+  }
+}
