@@ -48,7 +48,7 @@ grunt.initConfig({
     options: {
       paths: [
         './src/version.js',
-        './docs/version.js'
+        './docs/version.md'
       ]
     }
   },
@@ -59,7 +59,7 @@ grunt.initConfig({
       preview: false,
       paths: [
         './src/version.js',
-        './docs/version.js'
+        './docs/version.md'
       ]
     }
   },
@@ -69,7 +69,7 @@ grunt.initConfig({
       preview: false,
       paths: [
         './src/version.js',
-        './docs/version.js'
+        './docs/version.md'
       ]
     }
   },
