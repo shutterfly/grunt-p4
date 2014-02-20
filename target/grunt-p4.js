@@ -48,6 +48,23 @@
       p4.args = p4.args.concat(options.paths);
       return execP4(p4, this.async());
     });
+    grunt.registerMultiTask('p4submit', 'Submit files in Perforce', function() {
+      var options, p4;
+      p4 = {
+        cmd: 'p4',
+        args: ['submit']
+      };
+      options = this.options({
+        description: 'Automated submit via Grunt'
+      });
+      if (options.changelist) {
+        p4.args.push('-d', options.description);
+        p4.args.push('-c', options.changelist);
+        return execP4(p4, this.async());
+      } else {
+        return grunt.log.writeln('p4 submit was skipped; no changelist specified');
+      }
+    });
     execP4 = function(command, asyncCallback) {
       grunt.verbose.writeln("Executing " + command.cmd + " " + (command.args.join(' ')));
       return grunt.util.spawn(command, createP4Handler(command.args, asyncCallback));

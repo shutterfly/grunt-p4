@@ -92,3 +92,28 @@ grunt.initConfig({
 });
 
 ```
+
+## submit
+
+Submit a changelist to the repository. (See [p4 submit](http://www.perforce.com/perforce/r13.1/manuals/cmdref/submit.html))
+
+### Options
+  - description - String; the commit message. If omitted, defaults to
+  'Automated submit via Grunt'
+  - changelist - Number; the changelist number. If omitted, the operation is
+  not performed.
+
+### Example
+
+```javascript
+
+grunt.initConfig({
+  p4submit: {
+    options: {
+      description: 'A commit message',
+      changelist: 12345
+    }
+  },
+});
+
+```

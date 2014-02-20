@@ -56,6 +56,11 @@ describe 'grunt-p4', ->
       expect(registerArgs[0]).toEqual('p4edit')
       expect(registerArgs[1]).toEqual('Edit files in Perforce')
 
+    it 'registers the p4submit task', ->
+      registerArgs = mockGrunt.registerMultiTask.argsForCall[3]
+      expect(registerArgs[0]).toEqual('p4submit')
+      expect(registerArgs[1]).toEqual('Submit files in Perforce')
+
   describe 'p4revert', ->
 
     beforeEach ->
@@ -192,3 +197,51 @@ describe 'grunt-p4', ->
       spawnHandler = spawnArgs[1]
       spawnHandler(mockError)
       expect(asyncCallback).toHaveBeenCalledWith(mockError)
+
+  describe 'p4submit', ->
+
+    defaultOptions =
+      description: 'Automated submit via Grunt'
+
+    simulatedOptions = null
+
+    invokeP4Submit = (options) ->
+      simulatedOptions = options
+      taskContext = createTaskContext(simulatedOptions)
+      tasks.p4submit.apply(taskContext)
+
+    invokeDefault = ->
+      options =
+        changelist: '12345'
+        description: 'a commit message'
+      invokeP4Submit(options)
+
+    it 'registers default options', ->
+      invokeDefault()
+      expect(taskContext.options).toHaveBeenCalledWith(defaultOptions)
+
+    it 'spawns perforce command with expected arguments', ->
+      invokeDefault()
+      expect(mockGrunt.util.spawn).toHaveBeenCalled()
+      spawnArgs = mockGrunt.util.spawn.argsForCall[0]
+      expect(spawnArgs[0].cmd).toEqual('p4')
+      expect(spawnArgs[0].args[0]).toEqual('submit')
+      expect(spawnArgs[0].args[1]).toEqual('-d')
+      expect(spawnArgs[0].args[2]).toEqual(simulatedOptions.description)
+      expect(spawnArgs[0].args[3]).toEqual('-c')
+      expect(spawnArgs[0].args[4]).toEqual(simulatedOptions.changelist)
+
+    it 'invokes async callback on completion', ->
+      invokeDefault()
+      expect(taskContext.async).toHaveBeenCalled()
+      spawnArgs = mockGrunt.util.spawn.argsForCall[0]
+      spawnHandler = spawnArgs[1]
+      spawnHandler(mockError)
+      expect(asyncCallback).toHaveBeenCalledWith(mockError)
+
+    it 'does not spawn command if changelist is not provided', ->
+      options =
+        description: 'a commit message'
+      invokeP4Submit(options)
+      expect(mockGrunt.util.spawn).not.toHaveBeenCalled()
+

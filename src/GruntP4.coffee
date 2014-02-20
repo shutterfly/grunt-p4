@@ -47,6 +47,23 @@ module.exports = (grunt) ->
     p4.args = p4.args.concat(options.paths)
     execP4(p4, @async())
 
+  grunt.registerMultiTask 'p4submit', 'Submit files in Perforce', ->
+    p4 =
+      cmd: 'p4'
+      args: ['submit']
+
+    options = @options(
+      description: 'Automated submit via Grunt'
+    )
+
+    if options.changelist
+      p4.args.push('-d', options.description)
+      p4.args.push('-c', options.changelist)
+
+      execP4(p4, @async())
+    else
+      grunt.log.writeln('p4 submit was skipped; no changelist specified')
+
   execP4 = (command, asyncCallback) ->
     grunt.verbose.writeln("Executing #{command.cmd} #{command.args.join(' ')}")
     grunt.util.spawn(command, createP4Handler(command.args, asyncCallback))
