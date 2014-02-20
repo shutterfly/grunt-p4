@@ -10,36 +10,36 @@ sync may not yet exist.
 
 All commands are multi-tasks and can be [configured as such](http://gruntjs.com/configuring-tasks).
 
-* Supported Commands *
+# Supported Commands
 
-** revert **
+## revert
 
 Revert a list of files. (See [p4 revert](http://www.perforce.com/perforce/r13.1/manuals/cmdref/revert.html))
 
-* Options *
+### Options
   - paths - Array; a list of file paths
 
-** sync **
+## sync
 
 Synchronize local files with a remote repository. (See [p4 sync](http://www.perforce.com/perforce/r13.1/manuals/cmdref/sync.html))
 
-* Options *
+### Options
   - paths - Array; a list of file paths
   - force - Boolean; when true, force the sync, even if the local workspace
   already has the file.
   - preview - Boolean; when true, displays the results of the sync without
   actually performing the sync.
 
-** edit **
+## edit
 
 Check out a file for modification in the local workspace. (See [p4 edit](http://www.perforce.com/perforce/r13.1/manuals/cmdref/edit.html))
 
-* Options *
+### Options
   - paths - Array; a list of file paths
   - preview - Boolean; when true, displays the results of the sync without
   actually performing the sync.
 
-* Examples *
+# Examples
 
 ```javascript
 
