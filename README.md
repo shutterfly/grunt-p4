@@ -19,27 +19,7 @@ Revert a list of files. (See [p4 revert](http://www.perforce.com/perforce/r13.1/
 ### Options
   - paths - Array; a list of file paths
 
-## sync
-
-Synchronize local files with a remote repository. (See [p4 sync](http://www.perforce.com/perforce/r13.1/manuals/cmdref/sync.html))
-
-### Options
-  - paths - Array; a list of file paths
-  - force - Boolean; when true, force the sync, even if the local workspace
-  already has the file.
-  - preview - Boolean; when true, displays the results of the sync without
-  actually performing the sync.
-
-## edit
-
-Check out a file for modification in the local workspace. (See [p4 edit](http://www.perforce.com/perforce/r13.1/manuals/cmdref/edit.html))
-
-### Options
-  - paths - Array; a list of file paths
-  - preview - Boolean; when true, displays the results of the sync without
-  actually performing the sync.
-
-# Examples
+### Example
 
 ```javascript
 
@@ -51,8 +31,27 @@ grunt.initConfig({
         './docs/version.md'
       ]
     }
-  },
+  }
+);
 
+```
+
+## sync
+
+Synchronize local files with a remote repository. (See [p4 sync](http://www.perforce.com/perforce/r13.1/manuals/cmdref/sync.html))
+
+### Options
+  - paths - Array; a list of file paths
+  - force - Boolean; when true, force the sync, even if the local workspace
+  already has the file.
+  - preview - Boolean; when true, displays the results of the sync without
+  actually performing the sync.
+
+### Example
+
+```javascript
+
+grunt.initConfig({
   p4sync: {
     options: {
       force: true,
@@ -62,8 +61,25 @@ grunt.initConfig({
         './docs/version.md'
       ]
     }
-  },
+  }
+);
 
+```
+
+## edit
+
+Check out a file for modification in the local workspace. (See [p4 edit](http://www.perforce.com/perforce/r13.1/manuals/cmdref/edit.html))
+
+### Options
+  - paths - Array; a list of file paths
+  - preview - Boolean; when true, displays the results of the sync without
+  actually performing the sync.
+
+### Example
+
+```javascript
+
+grunt.initConfig({
   p4edit: {
     options: {
       preview: false,
