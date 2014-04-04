@@ -1,0 +1,7 @@
+**/node_modules
+.idea/
+**/target
+*.tgz
+*.properties
+*.iml
+.DS_Store
