@@ -3,7 +3,7 @@
   "description": "Perforce commands for Grunt",
   "version": "0.1.0",
   "private": true,
-  "main": "target/grunt-p4.js",
+  "main": "dist/grunt-p4.js",
   "repository": {
     "type" : "git",
     "url" : "http://github.com/sflyphotobooks/grunt-p4.git"

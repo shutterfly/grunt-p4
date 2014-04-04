@@ -10,7 +10,7 @@ module.exports = (grunt) ->
         options:
           join: true
         files:
-          'target/grunt-p4.js': ['./src/**/*.coffee']
+          'dist/grunt-p4.js': ['./src/**/*.coffee']
 
       spec:
         options:
