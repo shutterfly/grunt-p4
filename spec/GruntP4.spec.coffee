@@ -10,7 +10,7 @@ describe 'grunt-p4', ->
   beforeEach ->
     createMockGrunt()
     mockError = 'simulated exec error'
-    gruntP4 = require("#{process.cwd()}/target/grunt-p4.js")(mockGrunt)
+    gruntP4 = require("#{process.cwd()}/dist/grunt-p4.js")(mockGrunt)
 
   createMockGrunt = ->
     tasks = {}
@@ -244,4 +244,3 @@ describe 'grunt-p4', ->
         description: 'a commit message'
       invokeP4Submit(options)
       expect(mockGrunt.util.spawn).not.toHaveBeenCalled()
-
