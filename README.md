@@ -117,3 +117,13 @@ grunt.initConfig({
 });
 
 ```
+
+# Contributing
+
+Fork this library and run `npm install`. This library is built using [Grunt](https://github.com/gruntjs/grunt),
+which must be installed globally (`npm install -g grunt`).
+
+Once installed, run `grunt` to enter watch mode, which will run unit tests with each change. (Run `grunt test`
+for a single test run.)
+
+All new code must have associated unit test coverage prior to pull request acceptance.
