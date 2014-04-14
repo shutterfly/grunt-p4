@@ -10,6 +10,12 @@ sync may not yet exist.
 
 All commands are multi-tasks and can be [configured as such](http://gruntjs.com/configuring-tasks).
 
+# Installing
+
+Install at the project level, usually to your dev-dependencies:
+
+`npm install grunt-p4 --save-dev`
+
 # Supported Commands
 
 ## revert
