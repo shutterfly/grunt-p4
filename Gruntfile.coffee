@@ -10,7 +10,7 @@ module.exports = (grunt) ->
         options:
           join: true
         files:
-          'dist/grunt-p4.js': ['./src/**/*.coffee']
+          'tasks/grunt-p4.js': ['./src/**/*.coffee']
 
       spec:
         options:
@@ -31,6 +31,8 @@ module.exports = (grunt) ->
       requirejs: false
       forceExit: true
       verbose: true
+
+  grunt.loadTasks('tasks')
 
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-contrib-coffee')

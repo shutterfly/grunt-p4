@@ -10,7 +10,7 @@ describe 'grunt-p4', ->
   beforeEach ->
     createMockGrunt()
     mockError = 'simulated exec error'
-    gruntP4 = require("#{process.cwd()}/dist/grunt-p4.js")(mockGrunt)
+    gruntP4 = require("#{process.cwd()}/tasks/grunt-p4.js")(mockGrunt)
 
   createMockGrunt = ->
     tasks = {}
